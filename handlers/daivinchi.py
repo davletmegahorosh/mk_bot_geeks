@@ -2,7 +2,7 @@ from aiogram import Router, F, types
 from aiogram.filters import Command
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
-from config import database, bot
+from config import database
 from keyboards import all_kbs
 from daivinchi_txt import anketa_text
 

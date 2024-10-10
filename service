@@ -1,0 +1,8 @@
+[Service]
+WorkingDirectory= /root/mk_bot_geeks/
+User=root
+ExecStart= /root/mk_bot_geeks/venv/bin/python /root/mk_bot_geeks/mian.py
+
+[Install]
+WantedBy=multi-user.target
+EOF

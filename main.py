@@ -3,7 +3,6 @@ import logging
 from config import bot, dp, database
 from handlers import daivinchi_router, start_router, view_router
 
-
 async def main():
     # database.create_tables()
     dp.include_router(daivinchi_router)

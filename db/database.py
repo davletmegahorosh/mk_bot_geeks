@@ -12,7 +12,7 @@ class Database:
     def create_tables(self):
 
         '''Создание таблиц'''
-        self.cursor.execute('DROP TABLE IF EXISTS anketa')
+        # self.cursor.execute('DROP TABLE IF EXISTS anketa')
         self.cursor.execute('DROP TABLE IF EXISTS likes')
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS anketa (
@@ -59,6 +59,17 @@ class Database:
         SELECT * FROM anketa WHERE tg_id = :int_tg_id
         ''', {'int_tg_id': int_tg_id})
         return self.cursor.fetchone()
+
+    def is_any_exists(self):
+        self.cursor.execute('''
+        SELECT * FROM anketa''')
+        return self.cursor.fetchone()
+
+    def delete_my_like(self, tg_id):
+        self.cursor.execute('''
+        DELETE FROM likes WHERE liker = :tg_id
+        ''', {"tg_id" : tg_id})
+        self.connection.commit()
 
     def select_ankets(self, tg_id):
         self.cursor.execute('''
